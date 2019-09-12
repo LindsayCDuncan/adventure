@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Home",
+    "description": "Your home. It's not much to speak of, but it is very dear to you.",
+    "enemy": false,
+    "npc": false,
+    "investigate": false,
+    "north": null,
+    "east": null,
+    "south": 2,
+    "west": null
+  },
+  {
+    "id": 2,
+    "name": "Town Square",
+    "description": "You see a fountain in the center. The town's folk meander about.",
+    "enemy": false,
+    "npc": false,
+    "investigate": false,
+    "north": 1,
+    "east": 4,
+    "south": 6,
+    "west": 3
+  },
+  {
+    "id": 3,
+    "name": "Cemetery",
+    "description": "There are several rows of gravestones, most of which are in poor condition. The dirt beneath one of the gravestones opens up and a skeleton pops out!",
+    "enemy": true,
+    "npc": false,
+    "investigate": false,
+    "north": null,
+    "east": 2,
+    "south": null,
+    "west": null
+  },
+  {
+    "id": 4,
+    "name": "Alchemist's House",
+    "description": "You see a small hut surrounded by many plants. A small man is sitting in his rocking chair as he examines a pile of flowers one by one. He looks up at you with a quizzical look on his face.",
+    "enemy": false,
+    "npc": true,
+    "investigate": false,
+    "north": null,
+    "east": 5,
+    "south": null,
+    "west": 2
+  },
+  {
+    "id": 5,
+    "name": "Alchemist's Garden",
+    "description": "The alchemist's garden is huge, with a wide variety of plants. There is a particularly aromatic flower that you can't quite pinpoint the smell of. Suddenly, a spider jumps out at you!",
+    "enemy": true,
+    "npc": false,
+    "investigate": false,
+    "north": null,
+    "east": null,
+    "south": null,
+    "west": 4
+  },
+  {
+    "id": 6,
+    "name": "Farmland",
+    "description": "The farms are full of wheat and corn. Cows graze quietly off in the distance.",
+    "enemy": false,
+    "npc": false,
+    "investigate": false,
+    "north": 2,
+    "east": null,
+    "south": 7,
+    "west": null
+  },
+  {
+    "id": 7,
+    "name": "Forest",
+    "description": "The forest is dank, pressing in around you. There are faint scraping sounds nearby. You think you hear a murmuring of voices down the path.",
+    "enemy": false,
+    "npc": false,
+    "investigate": true,
+    "north": 6,
+    "east": null,
+    "south": null,
+    "west": null
+  }
+]

@@ -1,9 +1,11 @@
 class Character:
+    """ Base character class. """
     def __init__(self, name="Generic Character", max_health=50, damage=5):
         self.name = name
         self.max_health = max_health
         self.current_health = self.max_health
         self.damage = damage
+        self.alive = True
 
     def take_damage(self, amount):
         self.current_health -= amount
@@ -17,11 +19,10 @@ class Character:
 
     def attack(self, other):
         if isinstance(other, Character):
-            print(f"{self.name} attacks {other.name} for {self.damage} damage")
             other.take_damage(self.damage)
 
     def death(self):
-        print(f"{self.name} has died!")
+        self.alive = False
 
     def is_alive(self):
         return self.current_health > 0

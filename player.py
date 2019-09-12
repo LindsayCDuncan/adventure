@@ -1,5 +1,6 @@
 from character import Character
 from math import floor
+import json
 
 
 class Player(Character):
@@ -11,6 +12,7 @@ class Player(Character):
         self.current_loc = location
 
     def level_up(self):
+        """ Increase stats when level up. """
         remaining_amount = self.current_exp - self.max_exp
         self.level += 1
         self.current_exp = remaining_amount
@@ -21,21 +23,20 @@ class Player(Character):
 
     def gain_exp(self, amount):
         self.current_exp += amount
-        print(f"{self.name} has gained {amount} experience!")
-        if self.ready_to_level():
-            self.level_up()
-            print(f"{self.name} has leveled up!")
 
     def ready_to_level(self):
+        """ Return whether ready to level up. """
         if self.current_exp >= self.max_exp:
             return True
         return False
 
     def increase_max_exp(self):
-        self.max_exp = floor(self.max_exp * 1.5)
+        exp_modifier = 1.5
+        self.max_exp = floor(self.max_exp * exp_modifier)
 
     def increase_max_health(self):
-        self.max_health += 10
+        health_flat_modifier = 10
+        self.max_health += health_flat_modifier
 
     def increase_damage(self):
         damage_modifier = 1.1
@@ -52,7 +53,22 @@ class Player(Character):
         description = super().__str__() + "\nLevel: {} \n" \
                                           "Experience: {} / {} \n" \
                                           "Current location: {}".format(str(self.level),
-                                                                         str(self.current_exp),
-                                                                         str(self.max_exp),
+                                                                        str(self.current_exp),
+                                                                        str(self.max_exp),
                                                                         self.current_loc)
         return description
+
+
+class PlayerJSONEncoder(json.JSONEncoder):
+    """ Encode player object into JSON format. Return as dictionary. """
+    def default(self, o):
+        d = dict()
+        d["name"] = o.name
+        d["max_health"] = o.max_health
+        d["current_health"] = o.current_health
+        d["damage"] = o.damage
+        d["alive"] = o.alive
+        d["level"] = o.level
+        d["max_exp"] = o.max_exp
+        d["current_exp"] = o.current_exp
+        return d
